@@ -1,0 +1,79 @@
+    <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% if title %}
+        <title> {{ title }}</title>
+    {% else %}
+        <title>Flask Templates Demo</title>
+    {% endif %}    
+    <link  href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body class="bg-dark">
+
+    <div class="container text-center border border-success bg-dark rounded" style="width: 100%;">
+        <div class="row">
+            <div class="col-md-6">
+                <a class="text1" href=" {{ url_for('index') }} "><h1 class='text-light'>Chat</h1></a>
+            </div>
+            <div class="col-md-6">
+                {% if current_user.is_authenticated %}
+                    <div class="col-md-6">
+                       <a class="text1" href=' {{  url_for("logout") }} '><h1 class='text-light'>Logout</h1></a> <span class="text-success" style="font-size: 40px;"> | </span><a href=' {{  url_for("profile", username=current_user.username) }} '><h1 class='text-light'>Profile</h1></a>
+                    </div>
+            </div>
+                {% else %}
+                <div class="col-md-6">
+                    <h1><a class="text1" href=' {{  url_for("login") }} '>Login</a> <span class="text-success">|</span> <a href="{{  url_for('register') }}"><h1 class='text-light'>Register</h1></a></h1>
+                </div>
+                    
+                {% endif %}
+            </div>
+
+        </div>
+    </div>
+
+    <body>
+        {% for mesg in get_flashed_messages() %}
+        <br>
+        <div style="width: 80%; display: inline-block;" class="text-danger bg-dark rounded border border-danger">
+            <h1>{{ mesg }}</h1>
+        </div>
+        <br>
+        {% endfor %}
+
+    <div>
+        {% block content %}
+
+        {% endblock %}
+    </div>
+
+
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    
+</body>
+
+<style>
+    body {
+        background-color: rgb(40, 40, 41);
+        text-align: center;
+        color: white;
+    }
+
+    a{
+        color: white;
+        display: inline-block;
+    }
+    h2 {
+        font-size: 20px;
+
+    }
+
+</style>
+
+</html>

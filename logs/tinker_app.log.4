@@ -1,0 +1,105 @@
+2023-04-22 11:33:12,757 INFO: Tinker Full-stack App [in /mnt/c/Users/Administrator/Desktop/html/chapter-11/app/__init__.py:48]
+2023-04-22 11:33:28,629 ERROR: Exception on /edit_profile [POST] [in /mnt/c/Users/Administrator/Desktop/html/chapter 8/venv/lib/python3.8/site-packages/flask/app.py:1744]
+Traceback (most recent call last):
+  File "/mnt/c/Users/Administrator/Desktop/html/chapter 8/venv/lib/python3.8/site-packages/sqlalchemy/engine/base.py", line 1964, in _exec_single_context
+    self.dialect.do_execute(
+  File "/mnt/c/Users/Administrator/Desktop/html/chapter 8/venv/lib/python3.8/site-packages/sqlalchemy/engine/default.py", line 748, in do_execute
+    cursor.execute(statement, parameters)
+sqlite3.IntegrityError: UNIQUE constraint failed: user.username
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/mnt/c/Users/Administrator/Desktop/html/chapter 8/venv/lib/python3.8/site-packages/flask/app.py", line 2528, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/mnt/c/Users/Administrator/Desktop/html/chapter 8/venv/lib/python3.8/site-packages/flask/app.py", line 1825, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/mnt/c/Users/Administrator/Desktop/html/chapter 8/venv/lib/python3.8/site-packages/flask/app.py", line 1823, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/mnt/c/Users/Administrator/Desktop/html/chapter 8/venv/lib/python3.8/site-packages/flask/app.py", line 1799, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+  File "/mnt/c/Users/Administrator/Desktop/html/chapter 8/venv/lib/python3.8/site-packages/flask_login/utils.py", line 290, in decorated_view
+    return current_app.ensure_sync(func)(*args, **kwargs)
+  File "/mnt/c/Users/Administrator/Desktop/html/chapter-11/app/routes.py", line 15, in edit_profile
+    db.session.commit()
+  File "/mnt/c/Users/Administrator/Desktop/html/chapter 8/venv/lib/python3.8/site-packages/sqlalchemy/orm/scoping.py", line 553, in commit
+    return self._proxied.commit()
+  File "/mnt/c/Users/Administrator/Desktop/html/chapter 8/venv/lib/python3.8/site-packages/sqlalchemy/orm/session.py", line 1903, in commit
+    trans.commit(_to_root=True)
+  File "<string>", line 2, in commit
+  File "/mnt/c/Users/Administrator/Desktop/html/chapter 8/venv/lib/python3.8/site-packages/sqlalchemy/orm/state_changes.py", line 137, in _go
+    ret_value = fn(self, *arg, **kw)
+  File "/mnt/c/Users/Administrator/Desktop/html/chapter 8/venv/lib/python3.8/site-packages/sqlalchemy/orm/session.py", line 1218, in commit
+    self._prepare_impl()
+  File "<string>", line 2, in _prepare_impl
+  File "/mnt/c/Users/Administrator/Desktop/html/chapter 8/venv/lib/python3.8/site-packages/sqlalchemy/orm/state_changes.py", line 137, in _go
+    ret_value = fn(self, *arg, **kw)
+  File "/mnt/c/Users/Administrator/Desktop/html/chapter 8/venv/lib/python3.8/site-packages/sqlalchemy/orm/session.py", line 1193, in _prepare_impl
+    self.session.flush()
+  File "/mnt/c/Users/Administrator/Desktop/html/chapter 8/venv/lib/python3.8/site-packages/sqlalchemy/orm/session.py", line 4155, in flush
+    self._flush(objects)
+  File "/mnt/c/Users/Administrator/Desktop/html/chapter 8/venv/lib/python3.8/site-packages/sqlalchemy/orm/session.py", line 4292, in _flush
+    transaction.rollback(_capture_exception=True)
+  File "/mnt/c/Users/Administrator/Desktop/html/chapter 8/venv/lib/python3.8/site-packages/sqlalchemy/util/langhelpers.py", line 147, in __exit__
+    raise exc_value.with_traceback(exc_tb)
+  File "/mnt/c/Users/Administrator/Desktop/html/chapter 8/venv/lib/python3.8/site-packages/sqlalchemy/orm/session.py", line 4252, in _flush
+    flush_context.execute()
+  File "/mnt/c/Users/Administrator/Desktop/html/chapter 8/venv/lib/python3.8/site-packages/sqlalchemy/orm/unitofwork.py", line 467, in execute
+    rec.execute(self)
+  File "/mnt/c/Users/Administrator/Desktop/html/chapter 8/venv/lib/python3.8/site-packages/sqlalchemy/orm/unitofwork.py", line 644, in execute
+    util.preloaded.orm_persistence.save_obj(
+  File "/mnt/c/Users/Administrator/Desktop/html/chapter 8/venv/lib/python3.8/site-packages/sqlalchemy/orm/persistence.py", line 85, in save_obj
+    _emit_update_statements(
+  File "/mnt/c/Users/Administrator/Desktop/html/chapter 8/venv/lib/python3.8/site-packages/sqlalchemy/orm/persistence.py", line 890, in _emit_update_statements
+    c = connection.execute(
+  File "/mnt/c/Users/Administrator/Desktop/html/chapter 8/venv/lib/python3.8/site-packages/sqlalchemy/engine/base.py", line 1414, in execute
+    return meth(
+  File "/mnt/c/Users/Administrator/Desktop/html/chapter 8/venv/lib/python3.8/site-packages/sqlalchemy/sql/elements.py", line 486, in _execute_on_connection
+    return connection._execute_clauseelement(
+  File "/mnt/c/Users/Administrator/Desktop/html/chapter 8/venv/lib/python3.8/site-packages/sqlalchemy/engine/base.py", line 1638, in _execute_clauseelement
+    ret = self._execute_context(
+  File "/mnt/c/Users/Administrator/Desktop/html/chapter 8/venv/lib/python3.8/site-packages/sqlalchemy/engine/base.py", line 1842, in _execute_context
+    return self._exec_single_context(
+  File "/mnt/c/Users/Administrator/Desktop/html/chapter 8/venv/lib/python3.8/site-packages/sqlalchemy/engine/base.py", line 1983, in _exec_single_context
+    self._handle_dbapi_exception(
+  File "/mnt/c/Users/Administrator/Desktop/html/chapter 8/venv/lib/python3.8/site-packages/sqlalchemy/engine/base.py", line 2326, in _handle_dbapi_exception
+    raise sqlalchemy_exception.with_traceback(exc_info[2]) from e
+  File "/mnt/c/Users/Administrator/Desktop/html/chapter 8/venv/lib/python3.8/site-packages/sqlalchemy/engine/base.py", line 1964, in _exec_single_context
+    self.dialect.do_execute(
+  File "/mnt/c/Users/Administrator/Desktop/html/chapter 8/venv/lib/python3.8/site-packages/sqlalchemy/engine/default.py", line 748, in do_execute
+    cursor.execute(statement, parameters)
+sqlalchemy.exc.IntegrityError: (sqlite3.IntegrityError) UNIQUE constraint failed: user.username
+[SQL: UPDATE user SET username=?, about_me=? WHERE user.id = ?]
+[parameters: ('Dylan', 'HI', 10)]
+(Background on this error at: https://sqlalche.me/e/20/gkpj)
+2023-04-22 11:59:28,675 INFO: Tinker Full-stack App [in /mnt/c/Users/Administrator/Desktop/html/chapter-11/app/__init__.py:48]
+2023-05-20 09:31:54,304 INFO: Tinker Full-stack App [in /mnt/c/Users/Administrator/Desktop/html/chapter-11/app/__init__.py:48]
+2023-05-20 09:40:24,552 INFO: Tinker Full-stack App [in /mnt/c/Users/Administrator/Desktop/html/chapter-11/app/__init__.py:48]
+2023-05-20 09:40:27,093 ERROR: Exception on /home [GET] [in /mnt/c/Users/Administrator/Desktop/html/chapter 8/venv/lib/python3.8/site-packages/flask/app.py:1744]
+Traceback (most recent call last):
+  File "/mnt/c/Users/Administrator/Desktop/html/chapter 8/venv/lib/python3.8/site-packages/flask/app.py", line 2528, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/mnt/c/Users/Administrator/Desktop/html/chapter 8/venv/lib/python3.8/site-packages/flask/app.py", line 1825, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/mnt/c/Users/Administrator/Desktop/html/chapter 8/venv/lib/python3.8/site-packages/flask/app.py", line 1823, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/mnt/c/Users/Administrator/Desktop/html/chapter 8/venv/lib/python3.8/site-packages/flask/app.py", line 1799, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+  File "/mnt/c/Users/Administrator/Desktop/html/chapter-11/app/routes.py", line 78, in index
+    posts = Post.query.filter_by(Post.timestamp.desc()).all()
+TypeError: filter_by() takes 1 positional argument but 2 were given
+2023-05-20 09:41:22,313 ERROR: Exception on /home [GET] [in /mnt/c/Users/Administrator/Desktop/html/chapter 8/venv/lib/python3.8/site-packages/flask/app.py:1744]
+Traceback (most recent call last):
+  File "/mnt/c/Users/Administrator/Desktop/html/chapter 8/venv/lib/python3.8/site-packages/flask/app.py", line 2528, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/mnt/c/Users/Administrator/Desktop/html/chapter 8/venv/lib/python3.8/site-packages/flask/app.py", line 1825, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/mnt/c/Users/Administrator/Desktop/html/chapter 8/venv/lib/python3.8/site-packages/flask/app.py", line 1823, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/mnt/c/Users/Administrator/Desktop/html/chapter 8/venv/lib/python3.8/site-packages/flask/app.py", line 1799, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+  File "/mnt/c/Users/Administrator/Desktop/html/chapter-11/app/routes.py", line 78, in index
+    posts = Post.query.order_by(Post.timestamp.desc()).all()
+TypeError: filter_by() takes 1 positional argument but 2 were given
+2023-05-20 09:41:28,665 INFO: Tinker Full-stack App [in /mnt/c/Users/Administrator/Desktop/html/chapter-11/app/__init__.py:48]
+2023-05-20 09:42:15,801 INFO: Tinker Full-stack App [in /mnt/c/Users/Administrator/Desktop/html/chapter-11/app/__init__.py:48]

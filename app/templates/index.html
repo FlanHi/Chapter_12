@@ -1,0 +1,69 @@
+{% extends 'base.html' %}
+
+{% block content %}
+{% if current_user.is_authenticated %}
+    <div class="row">
+        <div class="col-md-12">
+            <p>
+                Hi <span class='text-success'>{{ current_user.username }}</span>, say something:
+            </p>
+            <form action="" method="post" novalidate>
+                {{ form.hidden_tag() }}
+                <p>
+                    {{ form.body.label }}<br>
+                    {{ form.body(cols=100, rows=1) }}<br>
+                    {% for error in form.body.errors %}
+                    <span style="color: red">{{ error }}</span>
+                    {% endfor %}
+                </p>
+                <p>
+                    {{ form.submit() }}
+                </p>
+            </form>`
+{% else %}
+            <a href="{{ url_for('login') }}">Please log in to send a message</a>
+{% endif %}
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <!-- all posts -->
+                <h1>All posts</h1>
+                <div style="width: 2200px">
+                    {% for post in posts %}
+                    {% if post %}
+                        {% include '_post.html' %}
+                    {% endif %}
+                    {% endfor %}
+                </div>
+                
+                <!-- pagination -->
+                {% if prev_url %}
+                <a href=" {{ prev_url }} ">Newer posts</a>
+                {% endif %}
+                {% if next_url %}
+                    <a href=" {{ next_url }} ">Older Posts</a>
+                {% endif %}
+            </div>
+        <div class="col-md-6">
+            <h1>Your posts</h1>
+            <!-- current user posts -->
+            <div style="width: 2200px">
+                {% for post in current_user_posts %}
+                {% if post %}
+                    {% include '_post.html' %}
+                {% endif %}
+                {% endfor %}            
+            </div>
+
+
+            <!-- pagination -->
+            {% if user_prev_url %}
+            <a href=" {{ user_prev_url }} ">Newer posts</a>
+            {% endif %}
+            {% if user_next_url %}
+                <a href=" {{ user_next_url }} ">Older Posts</a>
+            {% endif %}
+        </div>
+
+
+{% endblock %}

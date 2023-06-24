@@ -1,0 +1,9 @@
+<div class="row col-md-4 border border-success rounded" style="padding: 20px;  margin: 1px;">
+    <table>
+        <tr valign="top">
+            <td class="col-md-1"><img src="{{ post.author.avatar(36) }}"></td>
+            <td class="col-md-2">{{ post.author.username }} says:<br>{{ post.body }}</td>
+            <td class="col-md-1">Uploaded:<br>{{ post.timestamp }}</td>
+        </tr>
+    </table>
+</div>

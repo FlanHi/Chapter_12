@@ -1,0 +1,105 @@
+2023-06-07 13:09:18,581 INFO: Tinker Full-stack App [in /mnt/c/Users/Administrator/Desktop/html/Chapter-12/app/__init__.py:48]
+2023-06-07 13:09:23,498 ERROR: Exception on /home [GET] [in /mnt/c/Users/Administrator/Desktop/html/Chapter-12/venv/lib/python3.8/site-packages/flask/app.py:1744]
+Traceback (most recent call last):
+  File "/mnt/c/Users/Administrator/Desktop/html/Chapter-12/venv/lib/python3.8/site-packages/flask/app.py", line 2528, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/mnt/c/Users/Administrator/Desktop/html/Chapter-12/venv/lib/python3.8/site-packages/flask/app.py", line 1825, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/mnt/c/Users/Administrator/Desktop/html/Chapter-12/venv/lib/python3.8/site-packages/flask/app.py", line 1823, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/mnt/c/Users/Administrator/Desktop/html/Chapter-12/venv/lib/python3.8/site-packages/flask/app.py", line 1799, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+  File "/mnt/c/Users/Administrator/Desktop/html/Chapter-12/venv/lib/python3.8/site-packages/flask_login/utils.py", line 290, in decorated_view
+    return current_app.ensure_sync(func)(*args, **kwargs)
+  File "/mnt/c/Users/Administrator/Desktop/html/Chapter-12/app/routes.py", line 104, in index
+    return render_template(
+  File "/mnt/c/Users/Administrator/Desktop/html/Chapter-12/venv/lib/python3.8/site-packages/flask/templating.py", line 147, in render_template
+    return _render(app, template, context)
+  File "/mnt/c/Users/Administrator/Desktop/html/Chapter-12/venv/lib/python3.8/site-packages/flask/templating.py", line 130, in _render
+    rv = template.render(context)
+  File "/mnt/c/Users/Administrator/Desktop/html/Chapter-12/venv/lib/python3.8/site-packages/jinja2/environment.py", line 1301, in render
+    self.environment.handle_exception()
+  File "/mnt/c/Users/Administrator/Desktop/html/Chapter-12/venv/lib/python3.8/site-packages/jinja2/environment.py", line 936, in handle_exception
+    raise rewrite_traceback_stack(source=source)
+  File "/mnt/c/Users/Administrator/Desktop/html/Chapter-12/app/templates/index.html", line 1, in top-level template code
+    {% extends 'base.html' %}
+  File "/mnt/c/Users/Administrator/Desktop/html/Chapter-12/app/templates/base.html", line 48, in top-level template code
+    {% block content %}
+  File "/mnt/c/Users/Administrator/Desktop/html/Chapter-12/app/templates/index.html", line 41, in block 'content'
+    {% include '_post.html' %}
+  File "/mnt/c/Users/Administrator/Desktop/html/Chapter-12/app/templates/_post.html", line 3, in top-level template code
+    <td><img src="{{ post.author.avatar(36) }}"></td>
+  File "/mnt/c/Users/Administrator/Desktop/html/Chapter-12/venv/lib/python3.8/site-packages/jinja2/environment.py", line 485, in getattr
+    return getattr(obj, attribute)
+  File "/mnt/c/Users/Administrator/Desktop/html/Chapter-12/venv/lib/python3.8/site-packages/sqlalchemy/orm/attributes.py", line 557, in __get__
+    return self.impl.get(state, dict_)  # type: ignore[no-any-return]
+  File "/mnt/c/Users/Administrator/Desktop/html/Chapter-12/venv/lib/python3.8/site-packages/sqlalchemy/orm/attributes.py", line 1070, in get
+    value = self._fire_loader_callables(state, key, passive)
+  File "/mnt/c/Users/Administrator/Desktop/html/Chapter-12/venv/lib/python3.8/site-packages/sqlalchemy/orm/attributes.py", line 1105, in _fire_loader_callables
+    return self.callable_(state, passive)
+  File "/mnt/c/Users/Administrator/Desktop/html/Chapter-12/venv/lib/python3.8/site-packages/sqlalchemy/orm/strategies.py", line 923, in _load_for_state
+    raise orm_exc.DetachedInstanceError(
+sqlalchemy.orm.exc.DetachedInstanceError: Parent instance <Post at 0x7f59851bc9a0> is not bound to a Session; lazy load operation of attribute 'author' cannot proceed (Background on this error at: https://sqlalche.me/e/20/bhk3)
+2023-06-07 13:09:50,985 INFO: Tinker Full-stack App [in /mnt/c/Users/Administrator/Desktop/html/Chapter-12/app/__init__.py:48]
+2023-06-07 13:09:51,874 ERROR: Exception on /home [GET] [in /mnt/c/Users/Administrator/Desktop/html/Chapter-12/venv/lib/python3.8/site-packages/flask/app.py:1744]
+Traceback (most recent call last):
+  File "/mnt/c/Users/Administrator/Desktop/html/Chapter-12/venv/lib/python3.8/site-packages/flask/app.py", line 2528, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/mnt/c/Users/Administrator/Desktop/html/Chapter-12/venv/lib/python3.8/site-packages/flask/app.py", line 1825, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/mnt/c/Users/Administrator/Desktop/html/Chapter-12/venv/lib/python3.8/site-packages/flask/app.py", line 1823, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/mnt/c/Users/Administrator/Desktop/html/Chapter-12/venv/lib/python3.8/site-packages/flask/app.py", line 1799, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+  File "/mnt/c/Users/Administrator/Desktop/html/Chapter-12/venv/lib/python3.8/site-packages/flask_login/utils.py", line 290, in decorated_view
+    return current_app.ensure_sync(func)(*args, **kwargs)
+  File "/mnt/c/Users/Administrator/Desktop/html/Chapter-12/app/routes.py", line 101, in index
+    if posts.has_next else None
+AttributeError: 'list' object has no attribute 'has_next'
+2023-06-07 13:10:01,954 INFO: Tinker Full-stack App [in /mnt/c/Users/Administrator/Desktop/html/Chapter-12/app/__init__.py:48]
+2023-06-07 13:10:34,915 ERROR: Exception on /home [GET] [in /mnt/c/Users/Administrator/Desktop/html/Chapter-12/venv/lib/python3.8/site-packages/flask/app.py:1744]
+Traceback (most recent call last):
+  File "/mnt/c/Users/Administrator/Desktop/html/Chapter-12/venv/lib/python3.8/site-packages/flask/app.py", line 2528, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/mnt/c/Users/Administrator/Desktop/html/Chapter-12/venv/lib/python3.8/site-packages/flask/app.py", line 1825, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/mnt/c/Users/Administrator/Desktop/html/Chapter-12/venv/lib/python3.8/site-packages/flask/app.py", line 1823, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/mnt/c/Users/Administrator/Desktop/html/Chapter-12/venv/lib/python3.8/site-packages/flask/app.py", line 1799, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+  File "/mnt/c/Users/Administrator/Desktop/html/Chapter-12/venv/lib/python3.8/site-packages/flask_login/utils.py", line 290, in decorated_view
+    return current_app.ensure_sync(func)(*args, **kwargs)
+  File "/mnt/c/Users/Administrator/Desktop/html/Chapter-12/app/routes.py", line 101, in index
+    title='Index',
+AttributeError: 'list' object has no attribute 'has_next'
+2023-06-07 13:10:35,902 ERROR: Exception on /home [GET] [in /mnt/c/Users/Administrator/Desktop/html/Chapter-12/venv/lib/python3.8/site-packages/flask/app.py:1744]
+Traceback (most recent call last):
+  File "/mnt/c/Users/Administrator/Desktop/html/Chapter-12/venv/lib/python3.8/site-packages/flask/app.py", line 2528, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/mnt/c/Users/Administrator/Desktop/html/Chapter-12/venv/lib/python3.8/site-packages/flask/app.py", line 1825, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/mnt/c/Users/Administrator/Desktop/html/Chapter-12/venv/lib/python3.8/site-packages/flask/app.py", line 1823, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/mnt/c/Users/Administrator/Desktop/html/Chapter-12/venv/lib/python3.8/site-packages/flask/app.py", line 1799, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+  File "/mnt/c/Users/Administrator/Desktop/html/Chapter-12/venv/lib/python3.8/site-packages/flask_login/utils.py", line 290, in decorated_view
+    return current_app.ensure_sync(func)(*args, **kwargs)
+  File "/mnt/c/Users/Administrator/Desktop/html/Chapter-12/app/routes.py", line 101, in index
+    title='Index',
+AttributeError: 'list' object has no attribute 'has_next'
+2023-06-07 13:10:40,319 INFO: Tinker Full-stack App [in /mnt/c/Users/Administrator/Desktop/html/Chapter-12/app/__init__.py:48]
+2023-06-07 13:11:49,025 INFO: Tinker Full-stack App [in /mnt/c/Users/Administrator/Desktop/html/Chapter-12/app/__init__.py:48]
+2023-06-07 13:14:43,082 INFO: Tinker Full-stack App [in /mnt/c/Users/Administrator/Desktop/html/Chapter-12/app/__init__.py:48]
+2023-06-07 13:17:02,564 INFO: Tinker Full-stack App [in /mnt/c/Users/Administrator/Desktop/html/Chapter-12/app/__init__.py:48]
+2023-06-07 13:17:32,965 INFO: Tinker Full-stack App [in /mnt/c/Users/Administrator/Desktop/html/Chapter-12/app/__init__.py:48]
+2023-06-07 13:18:02,448 INFO: Tinker Full-stack App [in /mnt/c/Users/Administrator/Desktop/html/Chapter-12/app/__init__.py:48]
+2023-06-07 14:32:16,936 INFO: Tinker Full-stack App [in /mnt/c/Users/Administrator/Desktop/html/Chapter-12/app/__init__.py:48]
+2023-06-07 14:34:44,868 INFO: Tinker Full-stack App [in /mnt/c/Users/Administrator/Desktop/html/Chapter-12/app/__init__.py:48]
+2023-06-07 14:35:12,493 INFO: Tinker Full-stack App [in /mnt/c/Users/Administrator/Desktop/html/Chapter-12/app/__init__.py:48]
+2023-06-07 14:38:15,723 INFO: Tinker Full-stack App [in /mnt/c/Users/Administrator/Desktop/html/Chapter-12/app/__init__.py:48]
+2023-06-07 14:39:35,461 INFO: Tinker Full-stack App [in /mnt/c/Users/Administrator/Desktop/html/Chapter-12/app/__init__.py:48]
+2023-06-07 14:41:47,759 INFO: Tinker Full-stack App [in /mnt/c/Users/Administrator/Desktop/html/Chapter-12/app/__init__.py:48]
+2023-06-07 14:42:00,060 INFO: Tinker Full-stack App [in /mnt/c/Users/Administrator/Desktop/html/Chapter-12/app/__init__.py:48]
+2023-06-07 14:42:44,458 INFO: Tinker Full-stack App [in /mnt/c/Users/Administrator/Desktop/html/Chapter-12/app/__init__.py:48]
+2023-06-07 14:43:01,761 INFO: Tinker Full-stack App [in /mnt/c/Users/Administrator/Desktop/html/Chapter-12/app/__init__.py:48]
+2023-06-07 14:46:13,701 INFO: Tinker Full-stack App [in /mnt/c/Users/Administrator/Desktop/html/Chapter-12/app/__init__.py:48]
