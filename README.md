@@ -1,4 +1,4 @@
-# Error Handling
+# Pagination
 > This Project was about learning how to add pagination
 
 > BreakDown of this project:
